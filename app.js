@@ -13,8 +13,8 @@ app.use(express.json());
 
 app.use("/user", userRoutes);
 app.use("/blog", blogRoutes);
-console.log(process.env.MONGO_URL)
-mongoose.connect('mongodb+srv://rohitpeswani35:rohit35%40@cluster.otzkiaa.mongodb.net/Mern-blog-app?retryWrites=true&w=majority',
+//console.log(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL),
 { useNewUrlParser: true })
 .then(() => {
   app.listen(5000, () => {
