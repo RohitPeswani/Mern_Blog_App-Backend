@@ -5,9 +5,10 @@ import userRoutes from "./routes/user-routes.js";
 import blogRoutes from "./routes/blog-routes.js";
 import cors from 'cors';
 dotenv.config();
+const PORT = process.env.port || 5000;
 const app = express();
 app.use(cors({
-  origin : "http://localhost:5173"
+  origin : "http://blogapp.netlify.app"
 }))
 app.use(express.json());
 
@@ -17,7 +18,7 @@ app.use("/blog", blogRoutes);
 mongoose.connect(process.env.MONGO_URL),
 { useNewUrlParser: true })
 .then(() => {
-  app.listen(5000, () => {
+  app.listen(PORT, () => {
   console.log("Server Started")
   })
 })
