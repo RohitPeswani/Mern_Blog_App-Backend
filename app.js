@@ -15,7 +15,7 @@ app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/blog", blogRoutes);
 //console.log(process.env.MONGO_URL)
-mongoose.connect(process.env.MONGO_URL),
+mongoose.connect(process.env.MONGO_URL,
 { useNewUrlParser: true })
 .then(() => {
   app.listen(PORT, () => {
